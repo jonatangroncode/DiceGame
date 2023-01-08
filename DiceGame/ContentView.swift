@@ -11,6 +11,8 @@ struct ContentView: View {
     @State var diceNumber = 4
     
     var body: some View {
+        ZStack{
+            Color(red: 51/256, green: 106/256, blue: 61/256)
         
         VStack{
         
@@ -24,8 +26,10 @@ struct ContentView: View {
             }) {
                 
                 Text("roll")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.white)
             }
-            
+          }
         }
     }
     
