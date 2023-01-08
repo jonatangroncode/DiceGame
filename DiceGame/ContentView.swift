@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+//Uppgift
+//Skapa ett tärningsspel där man slår två tärningar. efter valfritt antal slag kan omgången avslutas, då sparas hitils uppnådda poäng. Om poängen för en omgång överskrider 21 blir istället poängen för den omgången 0
+//
+//målet är att uppnå 100 poäng på så få omgångar som möjligt
+
+
+
 struct ContentView: View {
     @State var diceNumber1 = 4
     @State var diceNumber2 = 4
