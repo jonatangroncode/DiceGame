@@ -31,6 +31,8 @@ struct ContentView: View {
             HStack{
             DiceView(n: diceNumber1)
             DiceView(n: diceNumber2)
+            }.onAppear() {
+                newDiceValues()
             }
             
             Spacer()
@@ -57,8 +59,7 @@ struct ContentView: View {
     }
     
     func roll() {
-        diceNumber1 = Int.random(in: 1...6)
-        diceNumber2 = Int.random(in: 1...6)
+       newDiceValues()
 
         sum += diceNumber1+diceNumber2
         
@@ -68,6 +69,11 @@ struct ContentView: View {
             // visa bustsheet
             
         }
+    }
+    
+    func newDiceValues() {
+        diceNumber1 = Int.random(in: 1...6)
+               diceNumber2 = Int.random(in: 1...6)
     }
 }
 
