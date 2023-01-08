@@ -11,11 +11,12 @@ struct ContentView: View {
     @State var diceNumber1 = 4
     @State var diceNumber2 = 4
     @State var sum = 0
+    @State var showingBustSheet = false
     
     var body: some View {
         ZStack{
             
-            Color(red: 51/256, green: 106/256, blue: 61/256)
+            Color(red: 51/256, green: 106/256, blue: 61/256).ignoresSafeArea()
         
                 
                 
@@ -48,6 +49,11 @@ struct ContentView: View {
           }
         
         }
+        .sheet(isPresented: $showingBustSheet, onDismiss: { sum = 0 }) {
+            
+            BustSheet(sum: sum)
+        }
+        
     }
     
     func roll() {
@@ -55,6 +61,13 @@ struct ContentView: View {
         diceNumber2 = Int.random(in: 1...6)
 
         sum += diceNumber1+diceNumber2
+        
+        if (sum > 21) {
+            showingBustSheet = true
+            
+            // visa bustsheet
+            
+        }
     }
 }
 
@@ -72,9 +85,32 @@ struct DiceView : View {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct BustSheet : View {
+    let sum : Int
+    
+    var body: some View {
+        ZStack{
             
+            Color(red: 51/256, green: 106/256, blue: 61/256)
+                .ignoresSafeArea()
+            
+            VStack{
+        Text("Bust")
+                .foregroundColor(.white)
+                .font(.title)
+                
+                Text ("\(sum)")
+                    .foregroundColor(.red)
+                    .font(.title)
+            }
+        }
     }
 }
+
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BustSheet()
+//
+//    }
+//}
+
