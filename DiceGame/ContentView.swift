@@ -28,7 +28,10 @@ struct ContentView: View {
                 Text("roll")
                     .font(.largeTitle)
                     .foregroundColor(Color.white)
+                    .padding(.horizontal)
             }
+            .background(Color.red)
+            .cornerRadius(15.0)
           }
         }
     }
@@ -38,6 +41,8 @@ struct ContentView: View {
         
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
