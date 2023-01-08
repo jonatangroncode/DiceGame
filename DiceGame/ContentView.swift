@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    var diceNumber = 4
+    @State var diceNumber = 4
     
     var body: some View {
+        
+        VStack{
         
         Image(systemName: "die.face.\(diceNumber)")
             .resizable()
             .aspectRatio(contentMode: .fit)
             .padding()
+            
+            Button(action: {
+                roll()
+            }) {
+                
+                Text("roll")
+            }
+            
+        }
+    }
+    
+    func roll() {
+        diceNumber = Int.random(in: 1...6)
         
     }
 }
